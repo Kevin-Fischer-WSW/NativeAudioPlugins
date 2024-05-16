@@ -2,11 +2,20 @@
 
 namespace LoudnessMeter
 {
+    const int kMaxExports = 2;
+
+    float* RMSExport;
+
+    extern "C" {
+        __declspec(dllexport) bool TryGetRMS(int idx, float& rms);
+    }
+
     enum Param
     {
         P_Window,
         P_YOffset,
         P_YScale,
+        P_RmsIndex,
         P_NUM
     };
 
@@ -80,6 +89,8 @@ namespace LoudnessMeter
         AudioPluginUtil::RegisterParameter(definition, "Window", "s", 0.1f, kMaxWindowLength, 1.0f, 1.0f, 1.0f, P_Window, "Length of analysis window");
         AudioPluginUtil::RegisterParameter(definition, "YOffset", "dB", -200.0f, 200.0f, 0.0f, 1.0f, 1.0f, P_YOffset, "Zoom offset on y-axis around which the loudness graphs will be plotted");
         AudioPluginUtil::RegisterParameter(definition, "YScale", "%", 0.001f, 10.0f, 1.0f, 100.0f, 1.0f, P_YScale, "Zoom factor for loudness graph");
+        AudioPluginUtil::RegisterParameter(definition, "RMS Index", "", 0.0f, kMaxExports - 1, 1.0f, 1.0f, 1.0f, P_RmsIndex, "The index at which to store the RMS value");
+        RMSExport = new float[kMaxExports - 1];
         return numparams;
     }
 
@@ -116,6 +127,8 @@ namespace LoudnessMeter
             data->integrated.Feed(src, inchannels);
             src += inchannels;
         }
+        int idx = data->p[P_RmsIndex];
+        RMSExport[idx] = data->momentary.rmsbuf.data[data->momentary.rmsbuf.writeindex];
 
         return UNITY_AUDIODSP_OK;
     }
@@ -157,5 +170,16 @@ namespace LoudnessMeter
         else
             memset(buffer, 0, sizeof(float) * numsamples);
         return UNITY_AUDIODSP_OK;
+    }
+
+    bool TryGetRMS(int idx, float& rms)
+    {
+        if (idx < 0 || idx >= kMaxExports)
+        {
+            rms = 0;
+            return false;
+        }
+        rms = RMSExport[idx];
+        return true;
     }
 }

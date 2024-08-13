@@ -47,22 +47,28 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEditor">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity\Hub\Editor\2022.3.9f1')">C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity 2022.3.9f1')">C:\Program Files\Unity 2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.CoreModule">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity\Hub\Editor\2022.3.9f1')">C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity 2022.3.9f1')">C:\Program Files\Unity 2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity\Hub\Editor\2022.3.9f1')">C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity 2022.3.9f1')">C:\Program Files\Unity 2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity\Hub\Editor\2022.3.9f1')">C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity 2022.3.9f1')">C:\Program Files\Unity 2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity\Hub\Editor\2022.3.9f1')">C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity 2022.3.9f1')">C:\Program Files\Unity 2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
-      <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity\Hub\Editor\2022.3.9f1')">C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
+      <HintPath Condition="Exists('C:\Program Files\Unity 2022.3.9f1')">C:\Program Files\Unity 2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <PropertyGroup>
